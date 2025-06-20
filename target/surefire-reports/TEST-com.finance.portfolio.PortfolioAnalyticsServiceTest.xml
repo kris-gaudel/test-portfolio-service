@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.finance.portfolio.PortfolioServiceTest" time="0.092" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.046" tests="15" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -56,12 +56,19 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testTransactionHistoryIsMaintained" classname="com.finance.portfolio.PortfolioServiceTest" time="0.048"/>
-  <testcase name="testPortfolioTracksMultipleAssets" classname="com.finance.portfolio.PortfolioServiceTest" time="0.002"/>
-  <testcase name="testSellingDecreasesQuantityAndHandlesErrors" classname="com.finance.portfolio.PortfolioServiceTest" time="0.003"/>
-  <testcase name="testPortfolioPerformanceCalculation" classname="com.finance.portfolio.PortfolioServiceTest" time="0.002"/>
-  <testcase name="testUnrealizedPnLCalculation" classname="com.finance.portfolio.PortfolioServiceTest" time="0.001"/>
-  <testcase name="testBuyingIncreasesQuantityAndAveragePrice" classname="com.finance.portfolio.PortfolioServiceTest" time="0.001"/>
-  <testcase name="testCalculateTotalValueReflectsCurrentPrices" classname="com.finance.portfolio.PortfolioServiceTest" time="0.004"/>
-  <testcase name="testInvalidInputsThrowExceptions" classname="com.finance.portfolio.PortfolioServiceTest" time="0.002"/>
+  <testcase name="testCalculateRealizedPnL" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.003"/>
+  <testcase name="testGetAssetAllocation" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.003"/>
+  <testcase name="testCalculateVolatility" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.002"/>
+  <testcase name="testGetPerformingAssetsEmptyPortfolio" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.003"/>
+  <testcase name="testCalculateTotalCost" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.002"/>
+  <testcase name="testGetBestPerformingAsset" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.001"/>
+  <testcase name="testCalculatePortfolioMetricsEmptyPortfolio" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.003"/>
+  <testcase name="testGetAssetAllocationEmptyPortfolio" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.002"/>
+  <testcase name="testCalculateTotalValue" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.001"/>
+  <testcase name="testAssetPerformanceRecord" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.002"/>
+  <testcase name="testCalculatePortfolioMetricsWithAssets" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.001"/>
+  <testcase name="testCalculateVolatilityEmptyPortfolio" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.001"/>
+  <testcase name="testCalculateRealizedPnLNoSales" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.001"/>
+  <testcase name="testConstructorWithNullPortfolio" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.001"/>
+  <testcase name="testGetWorstPerformingAsset" classname="com.finance.portfolio.PortfolioAnalyticsServiceTest" time="0.002"/>
 </testsuite>

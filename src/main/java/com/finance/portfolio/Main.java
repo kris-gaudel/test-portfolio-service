@@ -3,14 +3,18 @@ package com.finance.portfolio;
 import com.finance.portfolio.model.*;
 import com.finance.portfolio.service.PortfolioService;
 import com.finance.portfolio.service.TradeExecutor;
+import com.finance.portfolio.service.PortfolioAnalyticsService;
 import com.finance.portfolio.util.CSVExporter;
+import com.finance.portfolio.util.AnalyticsReportGenerator;
+
+import java.math.BigDecimal;
 
 /**
- * Main class demonstrating the PortfolioTracker application.
+ * Main class demonstrating the PortfolioTracker application with analytics features.
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("=== PortfolioTracker Demo ===\n");
+        System.out.println("=== PortfolioTracker Demo with Analytics ===\n");
 
         try {
             // 1. Instantiate Portfolio and PortfolioService
@@ -77,16 +81,46 @@ public class Main {
             System.out.println("\nUpdated Portfolio Summary:");
             System.out.println(portfolioService.getPortfolioSummary());
 
-            // 6. Export to CSV files
+            // 6. Generate analytics report
+            System.out.println("\nGenerating analytics report...");
+            PortfolioAnalyticsService analyticsService = new PortfolioAnalyticsService(portfolio);
+            AnalyticsReportGenerator reportGenerator = new AnalyticsReportGenerator(analyticsService);
+            
+            // Generate and display analytics report
+            String analyticsReport = reportGenerator.generateReportString();
+            System.out.println(analyticsReport);
+            
+            // Save analytics report to file
+            reportGenerator.generateReport("analytics_report.txt");
+
+            // 7. Export to CSV files
             System.out.println("\nExporting data to CSV files...");
             CSVExporter.exportAll(portfolio, "portfolio.csv", "transactions.csv");
             CSVExporter.exportPortfolioSummary(portfolio, "portfolio_summary.csv");
 
+            // 8. Display additional analytics insights
+            System.out.println("\nAdditional Analytics Insights:");
+            System.out.println("-".repeat(40));
+            
+            // Asset allocation
+            var allocation = analyticsService.getAssetAllocation();
+            System.out.println("Asset Allocation:");
+            allocation.forEach((symbol, percentage) -> 
+                System.out.printf("  %s: %.2f%%%n", symbol, percentage));
+            
+            // Best and worst performers
+            analyticsService.getBestPerformingAsset().ifPresent(best ->
+                System.out.printf("Best Performer: %s (%.2f%%)%n", best.symbol(), best.returnPercentage()));
+            
+            analyticsService.getWorstPerformingAsset().ifPresent(worst ->
+                System.out.printf("Worst Performer: %s (%.2f%%)%n", worst.symbol(), worst.returnPercentage()));
+
             System.out.println("\n=== Demo completed successfully! ===");
-            System.out.println("Check the generated CSV files:");
+            System.out.println("Check the generated files:");
             System.out.println("- portfolio.csv");
             System.out.println("- transactions.csv");
             System.out.println("- portfolio_summary.csv");
+            System.out.println("- analytics_report.txt");
 
         } catch (Exception e) {
             System.err.println("Error during demo: " + e.getMessage());
