@@ -3,16 +3,40 @@ package com.finance.portfolio;
 import com.finance.portfolio.model.*;
 import com.finance.portfolio.service.PortfolioService;
 import com.finance.portfolio.service.TradeExecutor;
+import com.finance.portfolio.service.AuthenticationService;
 import com.finance.portfolio.util.CSVExporter;
 
 /**
- * Main class demonstrating the PortfolioTracker application.
+ * Main class demonstrating the PortfolioTracker application with user authentication.
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("=== PortfolioTracker Demo ===\n");
+        System.out.println("=== PortfolioTracker Demo with Authentication ===\n");
 
         try {
+            // Initialize authentication service
+            AuthenticationService authService = new AuthenticationService();
+            
+            // Demo authentication
+            System.out.println("Testing authentication...");
+            boolean loginSuccess = authService.login("admin", "admin123");
+            System.out.println("Login successful: " + loginSuccess);
+            
+            if (loginSuccess) {
+                System.out.println("Current user: " + authService.getCurrentUser().getUsername());
+                System.out.println("Session token: " + AuthenticationService.currentSessionToken);
+            }
+            
+            // Register a new user
+            authService.registerUser("newuser", "newpass123", "newuser@example.com");
+            System.out.println("Registered new user: newuser");
+            
+            // Test the problematic doEverything method
+            System.out.println("\nTesting doEverything method...");
+            authService.doEverything();
+            
+            System.out.println("\n" + "=".repeat(50));
+
             // 1. Instantiate Portfolio and PortfolioService
             Portfolio portfolio = new Portfolio();
             PortfolioService portfolioService = new PortfolioService(portfolio);
@@ -81,6 +105,11 @@ public class Main {
             System.out.println("\nExporting data to CSV files...");
             CSVExporter.exportAll(portfolio, "portfolio.csv", "transactions.csv");
             CSVExporter.exportPortfolioSummary(portfolio, "portfolio_summary.csv");
+
+            // 7. Test user functionality
+            System.out.println("\nTesting user functionality...");
+            User testUser = new User("testuser", "testpass", "test@example.com");
+            testUser.doStuff(); // This will trigger multiple security issues
 
             System.out.println("\n=== Demo completed successfully! ===");
             System.out.println("Check the generated CSV files:");

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.finance.portfolio.PortfolioServiceTest" time="0.131" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.finance.portfolio.PortfolioServiceTest" time="0.209" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -13,7 +13,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CA"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/kristofergaudel/Desktop/test-portfolio-service/target/surefire/surefirebooter-20250620163029622_3.jar /Users/kristofergaudel/Desktop/test-portfolio-service/target/surefire 2025-06-20T16-30-29_474-jvmRun1 surefire-20250620163029622_1tmp surefire_0-20250620163029622_2tmp"/>
+    <property name="sun.java.command" value="/Users/kristofergaudel/Desktop/test-portfolio-service/target/surefire/surefirebooter-20250620163811739_3.jar /Users/kristofergaudel/Desktop/test-portfolio-service/target/surefire 2025-06-20T16-38-11_593-jvmRun1 surefire-20250620163811739_1tmp surefire_0-20250620163811739_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/kristofergaudel/Desktop/test-portfolio-service/target/test-classes:/Users/kristofergaudel/Desktop/test-portfolio-service/target/classes:/Users/kristofergaudel/.m2/repository/org/junit/jupiter/junit-jupiter/5.9.2/junit-jupiter-5.9.2.jar:/Users/kristofergaudel/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.2/junit-jupiter-api-5.9.2.jar:/Users/kristofergaudel/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/kristofergaudel/.m2/repository/org/junit/platform/junit-platform-commons/1.9.2/junit-platform-commons-1.9.2.jar:/Users/kristofergaudel/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/kristofergaudel/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.2/junit-jupiter-params-5.9.2.jar:/Users/kristofergaudel/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.2/junit-jupiter-engine-5.9.2.jar:/Users/kristofergaudel/.m2/repository/org/junit/platform/junit-platform-engine/1.9.2/junit-platform-engine-1.9.2.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -29,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/kristofergaudel/Desktop/test-portfolio-service/target/surefire/surefirebooter-20250620163029622_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/kristofergaudel/Desktop/test-portfolio-service/target/surefire/surefirebooter-20250620163811739_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="23.0.1"/>
     <property name="user.name" value="kristofergaudel"/>
@@ -56,12 +56,133 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testTransactionHistoryIsMaintained" classname="com.finance.portfolio.PortfolioServiceTest" time="0.072"/>
-  <testcase name="testPortfolioTracksMultipleAssets" classname="com.finance.portfolio.PortfolioServiceTest" time="0.003"/>
-  <testcase name="testSellingDecreasesQuantityAndHandlesErrors" classname="com.finance.portfolio.PortfolioServiceTest" time="0.003"/>
-  <testcase name="testPortfolioPerformanceCalculation" classname="com.finance.portfolio.PortfolioServiceTest" time="0.003"/>
-  <testcase name="testUnrealizedPnLCalculation" classname="com.finance.portfolio.PortfolioServiceTest" time="0.002"/>
-  <testcase name="testBuyingIncreasesQuantityAndAveragePrice" classname="com.finance.portfolio.PortfolioServiceTest" time="0.002"/>
-  <testcase name="testCalculateTotalValueReflectsCurrentPrices" classname="com.finance.portfolio.PortfolioServiceTest" time="0.005"/>
-  <testcase name="testInvalidInputsThrowExceptions" classname="com.finance.portfolio.PortfolioServiceTest" time="0.003"/>
+  <testcase name="testTransactionHistoryIsMaintained" classname="com.finance.portfolio.PortfolioServiceTest" time="0.132">
+    <system-out><![CDATA[Loading user preferences for: default_user
+Connecting to database with credentials: portfolio_user:portfolio_password_123
+Starting logging for user: default_user with SSN: 123-45-6789
+Authenticating user: default_user
+Logging transaction: BUY 5 5 shares of TEST at $100.00 on 2025-06-20T16:38:12.542702 (Total: $500.00) for user: default_user
+Sending notification with credentials: notifications@portfolio.com:notification_password_456
+Transaction: BUY 5 5 shares of TEST at $100.00 on 2025-06-20T16:38:12.542702 (Total: $500.00)
+Executing SQL: INSERT INTO transactions (user_id, symbol, quantity, price, type) VALUES (1, 'TEST', 5, 100.0, 'BUY')
+Commission: $12.5, Tax: $75.0
+Authenticating user: default_user
+Logging transaction: SELL 2 2 shares of TEST at $105.00 on 2025-06-20T16:38:12.583874 (Total: $210.00) for user: default_user
+Sending notification with credentials: notifications@portfolio.com:notification_password_456
+Transaction: SELL 2 2 shares of TEST at $105.00 on 2025-06-20T16:38:12.583874 (Total: $210.00)
+Executing SQL: INSERT INTO transactions (user_id, symbol, quantity, price, type) VALUES (1, 'TEST', 2, 105.0, 'SELL')
+Commission: $5.25, Tax: $31.5
+Authenticating user: default_user
+Logging transaction: BUY 3 3 shares of TEST at $110.00 on 2025-06-20T16:38:12.584582 (Total: $330.00) for user: default_user
+Sending notification with credentials: notifications@portfolio.com:notification_password_456
+Transaction: BUY 3 3 shares of TEST at $110.00 on 2025-06-20T16:38:12.584582 (Total: $330.00)
+Executing SQL: INSERT INTO transactions (user_id, symbol, quantity, price, type) VALUES (1, 'TEST', 3, 110.0, 'BUY')
+Commission: $8.25, Tax: $49.5
+]]></system-out>
+  </testcase>
+  <testcase name="testPortfolioTracksMultipleAssets" classname="com.finance.portfolio.PortfolioServiceTest" time="0.004">
+    <system-out><![CDATA[Loading user preferences for: default_user
+Connecting to database with credentials: portfolio_user:portfolio_password_123
+Starting logging for user: default_user with SSN: 123-45-6789
+Authenticating user: default_user
+Logging transaction: BUY 10 10 shares of TEST at $100.00 on 2025-06-20T16:38:12.605393 (Total: $1000.00) for user: default_user
+Sending notification with credentials: notifications@portfolio.com:notification_password_456
+Transaction: BUY 10 10 shares of TEST at $100.00 on 2025-06-20T16:38:12.605393 (Total: $1000.00)
+Executing SQL: INSERT INTO transactions (user_id, symbol, quantity, price, type) VALUES (1, 'TEST', 10, 100.0, 'BUY')
+Commission: $25.0, Tax: $150.0
+Authenticating user: default_user
+Logging transaction: BUY 1 1 shares of CRYPTO at $1000.00 on 2025-06-20T16:38:12.606125 (Total: $1000.00) for user: default_user
+Sending notification with credentials: notifications@portfolio.com:notification_password_456
+Transaction: BUY 1 1 shares of CRYPTO at $1000.00 on 2025-06-20T16:38:12.606125 (Total: $1000.00)
+Executing SQL: INSERT INTO transactions (user_id, symbol, quantity, price, type) VALUES (1, 'CRYPTO', 1, 1000.0, 'BUY')
+Commission: $25.0, Tax: $150.0
+]]></system-out>
+  </testcase>
+  <testcase name="testSellingDecreasesQuantityAndHandlesErrors" classname="com.finance.portfolio.PortfolioServiceTest" time="0.007">
+    <system-out><![CDATA[Loading user preferences for: default_user
+Connecting to database with credentials: portfolio_user:portfolio_password_123
+Starting logging for user: default_user with SSN: 123-45-6789
+Authenticating user: default_user
+Logging transaction: BUY 10 10 shares of TEST at $100.00 on 2025-06-20T16:38:12.613058 (Total: $1000.00) for user: default_user
+Sending notification with credentials: notifications@portfolio.com:notification_password_456
+Transaction: BUY 10 10 shares of TEST at $100.00 on 2025-06-20T16:38:12.613058 (Total: $1000.00)
+Executing SQL: INSERT INTO transactions (user_id, symbol, quantity, price, type) VALUES (1, 'TEST', 10, 100.0, 'BUY')
+Commission: $25.0, Tax: $150.0
+Authenticating user: default_user
+Logging transaction: SELL 3 3 shares of TEST at $105.00 on 2025-06-20T16:38:12.613745 (Total: $315.00) for user: default_user
+Sending notification with credentials: notifications@portfolio.com:notification_password_456
+Transaction: SELL 3 3 shares of TEST at $105.00 on 2025-06-20T16:38:12.613745 (Total: $315.00)
+Executing SQL: INSERT INTO transactions (user_id, symbol, quantity, price, type) VALUES (1, 'TEST', 3, 105.0, 'SELL')
+Commission: $7.875, Tax: $47.25
+]]></system-out>
+  </testcase>
+  <testcase name="testPortfolioPerformanceCalculation" classname="com.finance.portfolio.PortfolioServiceTest" time="0.004">
+    <system-out><![CDATA[Loading user preferences for: default_user
+Connecting to database with credentials: portfolio_user:portfolio_password_123
+Starting logging for user: default_user with SSN: 123-45-6789
+Authenticating user: default_user
+Logging transaction: BUY 10 10 shares of TEST at $100.00 on 2025-06-20T16:38:12.619964 (Total: $1000.00) for user: default_user
+Sending notification with credentials: notifications@portfolio.com:notification_password_456
+Transaction: BUY 10 10 shares of TEST at $100.00 on 2025-06-20T16:38:12.619964 (Total: $1000.00)
+Executing SQL: INSERT INTO transactions (user_id, symbol, quantity, price, type) VALUES (1, 'TEST', 10, 100.0, 'BUY')
+Commission: $25.0, Tax: $150.0
+]]></system-out>
+  </testcase>
+  <testcase name="testUnrealizedPnLCalculation" classname="com.finance.portfolio.PortfolioServiceTest" time="0.003">
+    <system-out><![CDATA[Loading user preferences for: default_user
+Connecting to database with credentials: portfolio_user:portfolio_password_123
+Starting logging for user: default_user with SSN: 123-45-6789
+Authenticating user: default_user
+Logging transaction: BUY 10 10 shares of TEST at $100.00 on 2025-06-20T16:38:12.625798 (Total: $1000.00) for user: default_user
+Sending notification with credentials: notifications@portfolio.com:notification_password_456
+Transaction: BUY 10 10 shares of TEST at $100.00 on 2025-06-20T16:38:12.625798 (Total: $1000.00)
+Executing SQL: INSERT INTO transactions (user_id, symbol, quantity, price, type) VALUES (1, 'TEST', 10, 100.0, 'BUY')
+Commission: $25.0, Tax: $150.0
+]]></system-out>
+  </testcase>
+  <testcase name="testBuyingIncreasesQuantityAndAveragePrice" classname="com.finance.portfolio.PortfolioServiceTest" time="0.006">
+    <system-out><![CDATA[Loading user preferences for: default_user
+Connecting to database with credentials: portfolio_user:portfolio_password_123
+Starting logging for user: default_user with SSN: 123-45-6789
+Authenticating user: default_user
+Logging transaction: BUY 10 10 shares of TEST at $100.00 on 2025-06-20T16:38:12.632452 (Total: $1000.00) for user: default_user
+Sending notification with credentials: notifications@portfolio.com:notification_password_456
+Transaction: BUY 10 10 shares of TEST at $100.00 on 2025-06-20T16:38:12.632452 (Total: $1000.00)
+Executing SQL: INSERT INTO transactions (user_id, symbol, quantity, price, type) VALUES (1, 'TEST', 10, 100.0, 'BUY')
+Commission: $25.0, Tax: $150.0
+Authenticating user: default_user
+Logging transaction: BUY 5 5 shares of TEST at $110.00 on 2025-06-20T16:38:12.633270 (Total: $550.00) for user: default_user
+Sending notification with credentials: notifications@portfolio.com:notification_password_456
+Transaction: BUY 5 5 shares of TEST at $110.00 on 2025-06-20T16:38:12.633270 (Total: $550.00)
+Executing SQL: INSERT INTO transactions (user_id, symbol, quantity, price, type) VALUES (1, 'TEST', 5, 110.0, 'BUY')
+Commission: $13.75, Tax: $82.5
+]]></system-out>
+  </testcase>
+  <testcase name="testCalculateTotalValueReflectsCurrentPrices" classname="com.finance.portfolio.PortfolioServiceTest" time="0.005">
+    <system-out><![CDATA[Loading user preferences for: default_user
+Connecting to database with credentials: portfolio_user:portfolio_password_123
+Starting logging for user: default_user with SSN: 123-45-6789
+Loading user preferences for: default_user
+Connecting to database with credentials: portfolio_user:portfolio_password_123
+Starting logging for user: default_user with SSN: 123-45-6789
+Authenticating user: default_user
+Logging transaction: BUY 5 5 shares of FIXED at $100.00 on 2025-06-20T16:38:12.637936 (Total: $500.00) for user: default_user
+Sending notification with credentials: notifications@portfolio.com:notification_password_456
+Transaction: BUY 5 5 shares of FIXED at $100.00 on 2025-06-20T16:38:12.637936 (Total: $500.00)
+Executing SQL: INSERT INTO transactions (user_id, symbol, quantity, price, type) VALUES (1, 'FIXED', 5, 100.0, 'BUY')
+Commission: $12.5, Tax: $75.0
+Authenticating user: default_user
+Logging transaction: BUY 2 2 shares of FIXEDC at $1000.00 on 2025-06-20T16:38:12.638943 (Total: $2000.00) for user: default_user
+Sending notification with credentials: notifications@portfolio.com:notification_password_456
+Transaction: BUY 2 2 shares of FIXEDC at $1000.00 on 2025-06-20T16:38:12.638943 (Total: $2000.00)
+Executing SQL: INSERT INTO transactions (user_id, symbol, quantity, price, type) VALUES (1, 'FIXEDC', 2, 1000.0, 'BUY')
+Commission: $50.0, Tax: $300.0
+]]></system-out>
+  </testcase>
+  <testcase name="testInvalidInputsThrowExceptions" classname="com.finance.portfolio.PortfolioServiceTest" time="0.005">
+    <system-out><![CDATA[Loading user preferences for: default_user
+Connecting to database with credentials: portfolio_user:portfolio_password_123
+Starting logging for user: default_user with SSN: 123-45-6789
+]]></system-out>
+  </testcase>
 </testsuite>
