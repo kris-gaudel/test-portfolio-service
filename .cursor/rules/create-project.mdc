@@ -1,0 +1,118 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Project: PortfolioTracker
+
+## Goal
+Generate a medium-sized Java project called `PortfolioTracker`. This application tracks a user's financial portfolio (stocks, crypto, ETFs), simulates buy/sell transactions, computes portfolio value over time, and exports reports. It should be cleanly modularized with OOP design and unit tested.
+
+---
+
+## Requirements
+
+### 🗂 Project Structure
+Create a Maven‑style layout:
+
+```
+
+src/
+├── main/
+│   └── java/
+│       └── com/finance/portfolio/
+│           ├── Main.java
+│           ├── model/
+│           │   ├── Asset.java
+│           │   ├── Stock.java
+│           │   ├── Crypto.java
+│           │   ├── Transaction.java
+│           │   └── Portfolio.java
+│           ├── service/
+│           │   ├── PortfolioService.java
+│           │   └── TradeExecutor.java
+│           └── util/
+│               ├── PriceFetcher.java
+│               └── CSVExporter.java
+└── test/
+└── java/
+└── com/finance/portfolio/
+└── PortfolioServiceTest.java
+
+```
+
+---
+
+### 📦 Classes & Responsibilities
+
+#### `Asset.java` (abstract)
+- Fields: `symbol`, `name`, `quantity`, `averagePrice`
+- Constructor to initialize symbol & name
+- Abstract `double getCurrentPrice()`
+- Concrete `double getMarketValue()`
+
+#### `Stock.java` / `Crypto.java`
+- Extend `Asset`
+- Implement `getCurrentPrice()` using a mock or `PriceFetcher`
+
+#### `Transaction.java`
+- Fields: `Asset asset`, `int quantity`, `double price`, `LocalDateTime timestamp`, `Type { BUY, SELL }`
+
+#### `Portfolio.java`
+- Stores `List<Transaction>` and `Map<String, Asset>`
+- Methods: `addTransaction()`, `updateHoldings()`, `getAssets()`, `getTransactions()`
+
+#### `PortfolioService.java`
+- Methods: `buyAsset()`, `sellAsset()`, `calculateTotalValue()`
+- Delegates to `Portfolio` for updates
+
+#### `TradeExecutor.java`
+- Simulates random buy/sell at intervals (for demo/testing)
+
+#### `PriceFetcher.java`
+- Mock service returning pseudo‑random current prices per symbol
+
+#### `CSVExporter.java`
+- Exports portfolio and/or transactions to `.csv` files
+
+---
+
+### ⚙️ Main & Usage
+
+#### `Main.java`
+- Demo flow:
+  - Instantiate `Portfolio`
+  - Create `PortfolioService`
+  - Execute some buys/sells
+  - Print portfolio value
+  - Export CSV via `CSVExporter`
+- Use plain output to console—no frameworks
+
+---
+
+### 🧪 Testing with JUnit 5
+
+#### `PortfolioServiceTest.java`
+- Test cases:
+  - Buying increases asset quantity and average price
+  - Selling decreases quantity and handles errors
+  - `calculateTotalValue()` reflects current mocked prices
+- Use assertions to verify state and values
+
+---
+
+### 📝 Constraints
+- Java 17
+- No external dependencies except JUnit 5
+- SOLID principles, clean naming, clear packaging
+- Each class in its own `.java` file with correct `package` declarations
+
+---
+
+## ✅ Output Format
+
+Cursor should generate:
+- Full directory structure
+- All `.java` files with code and imports
+- JUnit test class
+- A basic `pom.xml` or `build.gradle` scaffold (optional)

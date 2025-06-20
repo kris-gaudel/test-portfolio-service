@@ -1,0 +1,10 @@
+/Users/kristofergaudel/Desktop/test-portfolio-service/src/main/java/com/finance/portfolio/Main.java
+/Users/kristofergaudel/Desktop/test-portfolio-service/src/main/java/com/finance/portfolio/service/PortfolioService.java
+/Users/kristofergaudel/Desktop/test-portfolio-service/src/main/java/com/finance/portfolio/util/CSVExporter.java
+/Users/kristofergaudel/Desktop/test-portfolio-service/src/main/java/com/finance/portfolio/model/Asset.java
+/Users/kristofergaudel/Desktop/test-portfolio-service/src/main/java/com/finance/portfolio/model/Stock.java
+/Users/kristofergaudel/Desktop/test-portfolio-service/src/main/java/com/finance/portfolio/service/TradeExecutor.java
+/Users/kristofergaudel/Desktop/test-portfolio-service/src/main/java/com/finance/portfolio/model/Portfolio.java
+/Users/kristofergaudel/Desktop/test-portfolio-service/src/main/java/com/finance/portfolio/model/Transaction.java
+/Users/kristofergaudel/Desktop/test-portfolio-service/src/main/java/com/finance/portfolio/model/Crypto.java
+/Users/kristofergaudel/Desktop/test-portfolio-service/src/main/java/com/finance/portfolio/util/PriceFetcher.java
